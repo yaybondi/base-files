@@ -1,0 +1,39 @@
+# This is the system-wide .profile file for Bourne-compatible shells. Do not
+# edit this file. Instead put your own scripts with extension '.sh' into the
+# directory '/etc/profile.d'.
+
+#
+# Fix the path.
+#
+if [ "`id -u`" -eq 0 ]; then
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+else
+    PATH="/usr/local/bin:/usr/bin:/bin"
+fi
+
+if [ -d "/tools" ]
+    PATH="/tools/bin:/tools/sbin:$PATH"
+fi
+
+#
+# Fix the prompt.
+#
+if [ "`id -u`" -eq 0 ]; then
+    PS1='\h:\w\# '
+else
+    PS1='\h:\w\$ '
+fi
+
+#
+# Read in addtional configuration files.
+#
+if [ -d "/etc/profile.d" ]; then
+  for script in /etc/profile.d/*.sh; do
+    if [ -r "$script" ]; then
+      . "$script"
+    fi
+  done
+  unset script
+fi
+
+export PATH
