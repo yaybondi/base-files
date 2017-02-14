@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
 
+VERSION=$(shell cat VERSION)
 DESTDIR=install
+BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 .PHONY: install clean
 
@@ -98,3 +100,6 @@ install-files:
 	install -m 644 etc/profile      $(DESTDIR)/etc/
 	install -m 644 etc/services     $(DESTDIR)/etc/
 
+tarball:
+	git archive --format=tar.gz --prefix=base-files-$(VERSION)/ \
+	    -o ../base-files-$(VERSION).tar.gz $(BRANCH)
