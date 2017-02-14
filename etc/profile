@@ -11,7 +11,7 @@ else
     PATH="/usr/local/bin:/usr/bin:/bin"
 fi
 
-if [ -d "/tools" ]
+if [ -d "/tools" ]; then
     PATH="/tools/bin:/tools/sbin:$PATH"
 fi
 
