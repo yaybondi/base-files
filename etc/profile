@@ -2,13 +2,15 @@
 # edit this file. Instead put your own scripts with extension '.sh' into the
 # directory '/etc/profile.d'.
 
+PATH="/tools/bin:/usr/bin"
+
 #
 # Fix the path.
 #
 if [ "`id -u`" -eq 0 ]; then
     PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
 else
-    PATH="/usr/local/bin:/usr/bin:/bin"
+    PATH="/usr/local/bin:/usr/bin"
 fi
 
 if [ -d "/tools" ]; then
@@ -19,9 +21,9 @@ fi
 # Fix the prompt.
 #
 if [ "`id -u`" -eq 0 ]; then
-    PS1='\h:\w\# '
+    PS1='\u@\h:\w\# '
 else
-    PS1='\h:\w\$ '
+    PS1='\u@\h:\w\$ '
 fi
 
 #
