@@ -20,10 +20,21 @@ fi
 #
 # Fix the prompt.
 #
-if [ "`id -u`" -eq 0 ]; then
-    PS1='\u@\h:\w\# '
+if [ -f "/etc/target" ]; then
+    export BOLT_TARGET_NAME=`cat /etc/target | grep ^NAME | cut -d'=' -f2`
+    export BOLT_TARGET_ARCHITECTURE=`cat /etc/target | grep ^ARCH | cut -d'=' -f2`
+
+    if [ "`id -u`" -eq 0 ]; then
+        PS1="\u@$BOLT_TARGET_NAME($BOLT_TARGET_ARCHITECTURE):\w\# "
+    else
+        PS1="\u@$BOLT_TARGET_NAME($BOLT_TARGET_ARCHITECTURE):\w\$ "
+    fi
 else
-    PS1='\u@\h:\w\$ '
+    if [ "`id -u`" -eq 0 ]; then
+        PS1='\u@\h:\w\# '
+    else
+        PS1='\u@\h:\w\$ '
+    fi
 fi
 
 #
