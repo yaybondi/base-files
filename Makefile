@@ -89,7 +89,8 @@ install-symlinks:
 	ln -sf usr/sbin   $(DESTDIR)/sbin
 	ln -sf usr/lib    $(DESTDIR)/lib
 	ln -sf ../mail    $(DESTDIR)/var/spool/mail
-	ln -sf /run/lock  $(DESTDIR)/var/run
+	ln -sf /run       $(DESTDIR)/var/run
+	ln -sf /run/lock  $(DESTDIR)/var/lock
 	ln -sf share/man  $(DESTDIR)/usr/man
 	ln -sf share/doc  $(DESTDIR)/usr/doc
 	ln -sf share/info $(DESTDIR)/usr/info
