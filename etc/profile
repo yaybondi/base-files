@@ -21,14 +21,17 @@ fi
 # Fix the prompt.
 #
 if [ -f "/etc/target" ]; then
-    export BOLT_TARGET_NAME=`cat /etc/target | grep ^NAME | cut -d'=' -f2`
-    export BOLT_TARGET_ARCHITECTURE=`cat /etc/target | grep ^ARCH | cut -d'=' -f2`
+    target_name=`cat /etc/target | grep '^NAME'    | cut -d'=' -f2`
+    target_mach=`cat /etc/target | grep '^MACHINE' | cut -d'=' -f2`
 
     if [ "`id -u`" -eq 0 ]; then
-        PS1="\u@$BOLT_TARGET_NAME($BOLT_TARGET_ARCHITECTURE):\w\# "
+        PS1="\u@$target_name($target_mach):\w\# "
     else
-        PS1="\u@$BOLT_TARGET_NAME($BOLT_TARGET_ARCHITECTURE):\w\$ "
+        PS1="\u@$target_name($target_mach):\w\$ "
     fi
+
+    unset target_name
+    unset target_mach
 else
     if [ "`id -u`" -eq 0 ]; then
         PS1='\u@\h:\w\# '
@@ -50,3 +53,4 @@ if [ -d "/etc/profile.d" ]; then
 fi
 
 export PATH
+
