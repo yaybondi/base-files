@@ -34,7 +34,6 @@ install-dirs:
 	install -d -m 0755 $(DESTDIR)/usr/sbin
 	install -d -m 0755 $(DESTDIR)/usr/src
 	install -d -m 0755 $(DESTDIR)/usr/share
-	install -d -m 0755 $(DESTDIR)/usr/share/base-files
 	install -d -m 0755 $(DESTDIR)/usr/share/doc
 	install -d -m 0755 $(DESTDIR)/usr/share/info
 	install -d -m 0755 $(DESTDIR)/usr/share/locale
