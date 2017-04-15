@@ -7,7 +7,7 @@ PATH="/tools/bin:/usr/bin"
 #
 # Fix the path.
 #
-if [ "`id -u`" -eq 0 ]; then
+if [ "`id -u`" -eq 0 ] || [ -f "/etc/target" ]; then
     PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
 else
     PATH="/usr/local/bin:/usr/bin"
@@ -21,8 +21,8 @@ fi
 # Fix the prompt.
 #
 if [ -f "/etc/target" ]; then
-    target_name=`cat /etc/target | grep '^NAME'    | cut -d'=' -f2`
-    target_mach=`cat /etc/target | grep '^MACHINE' | cut -d'=' -f2`
+    target_name=`cat /etc/target | grep '^TARGET_ID'      | cut -d'=' -f2`
+    target_mach=`cat /etc/target | grep '^TARGET_MACHINE' | cut -d'=' -f2`
 
     if [ "`id -u`" -eq 0 ]; then
         PS1="\u@$target_name($target_mach):\w\# "
