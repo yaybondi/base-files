@@ -3,6 +3,7 @@
 VERSION=$(shell cat VERSION)
 DESTDIR=install
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
+OSBITS=32
 
 .PHONY: install clean
 
@@ -93,6 +94,10 @@ install-symlinks:
 	ln -sf share/man   $(DESTDIR)/usr/man
 	ln -sf share/doc   $(DESTDIR)/usr/doc
 	ln -sf share/info  $(DESTDIR)/usr/info
+ifeq ($(OSBITS),64)
+	ln -sf usr/lib     $(DESTDIR)/lib64
+	ln -sf lib         $(DESTDIR)/usr/lib64
+endif
 
 install-files:
 	install -m 644 etc/bolt_version $(DESTDIR)/etc/
