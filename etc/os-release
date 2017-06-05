@@ -1,7 +1,7 @@
 ID=bolt
 NAME="Bolt OS"
-PRETTY_NAME="Bolt OS 2017.01 (Zeus)"
-VERSION="2017.01 (Zeus)"
-VERSION_ID="2017.01"
+PRETTY_NAME="Bolt OS 2017.06 (Zeus)"
+VERSION="2017.06 (Zeus)"
+VERSION_ID="2017.06"
 VERSION_CODENAME=zeus
-HOME_URL="http://nonterra.com/bolt"
+HOME_URL="http://boltlinux.org"
