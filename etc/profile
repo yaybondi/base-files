@@ -53,4 +53,3 @@ if [ -d "/etc/profile.d" ]; then
 fi
 
 export PATH
-
