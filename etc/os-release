@@ -1,7 +1,7 @@
 ID=bolt
-NAME="Bolt OS"
-PRETTY_NAME="Bolt OS 2019.09 (Mistral)"
-VERSION="2019.09 (Mistral)"
-VERSION_ID="2019.06"
-VERSION_CODENAME=mistral
+NAME="Bolt Linux"
+PRETTY_NAME="Bolt OS ##VERSION## (##CODENAME##)"
+VERSION="##VERSION## (##CODENAME##)"
+VERSION_ID="##VERSION##"
+VERSION_CODENAME=##codename##
 HOME_URL="http://boltlinux.org"

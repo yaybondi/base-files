@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-VERSION=$(shell cat VERSION)
+VERSION=$(shell cat config | grep ^VERSION= | cut -d'=' -f2)
 DESTDIR=install
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 OSBITS=32
@@ -100,10 +100,10 @@ ifeq ($(OSBITS),64)
 endif
 
 install-files:
-	install -m 644 etc/bolt_version $(DESTDIR)/etc/
-	install -m 644 etc/os-release   $(DESTDIR)/etc/
-	install -m 644 etc/profile      $(DESTDIR)/etc/
-	install -m 644 etc/services     $(DESTDIR)/etc/
+	install -m 644 etc/profile  $(DESTDIR)/etc/
+	install -m 644 etc/services $(DESTDIR)/etc/
+	echo $(VERSION) >           $(DESTDIR)/etc/bolt_version
+	./fill-template.sh >        $(DESTDIR)/etc/os-release
 
 tarball:
 	git archive --format=tar.gz --prefix=base-files-$(VERSION)/ \
