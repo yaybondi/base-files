@@ -1,6 +1,6 @@
 ID=bolt
 NAME="Bolt Linux"
-PRETTY_NAME="Bolt OS ##VERSION## (##CODENAME##)"
+PRETTY_NAME="Bolt Linux ##VERSION## (##CODENAME##)"
 VERSION="##VERSION## (##CODENAME##)"
 VERSION_ID="##VERSION##"
 VERSION_CODENAME=##codename##
