@@ -25,18 +25,18 @@ if [ -f "/etc/target" ]; then
     target_mach=`cat /etc/target | grep '^TARGET_MACHINE' | cut -d'=' -f2`
 
     if [ "`id -u`" -eq 0 ]; then
-        PS1="\u@$target_name($target_mach):\w\# "
+        PS1="\u@$target_name($target_mach):\w\# \[\e]2;\u@$target_name($target_mach):\w\a\]"
     else
-        PS1="\u@$target_name($target_mach):\w\$ "
+        PS1="\u@$target_name($target_mach):\w\$ \[\e]2;\u@$target_name($target_mach):\w\a\]"
     fi
 
     unset target_name
     unset target_mach
 else
     if [ "`id -u`" -eq 0 ]; then
-        PS1='\u@\h:\w\# '
+        PS1='\u@\h:\w\# \[\e]2;\u@$target_name($target_mach):\w\a\]'
     else
-        PS1='\u@\h:\w\$ '
+        PS1='\u@\h:\w\$ \[\e]2;\u@$target_name($target_mach):\w\a\]'
     fi
 fi
 
