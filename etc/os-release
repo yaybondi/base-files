@@ -4,4 +4,4 @@ PRETTY_NAME="Bolt Linux ##VERSION## (##CODENAME##)"
 VERSION="##VERSION## (##CODENAME##)"
 VERSION_ID="##VERSION##"
 VERSION_CODENAME=##codename##
-HOME_URL="http://boltlinux.org"
+HOME_URL="https://boltlinux.org"
