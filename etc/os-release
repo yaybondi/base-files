@@ -1,7 +1,7 @@
-ID=bolt
-NAME="Bolt Linux"
-PRETTY_NAME="Bolt Linux ##VERSION## (##CODENAME##)"
+ID=bondi
+NAME="Bondi OS"
+PRETTY_NAME="Bondi OS ##VERSION## (##CODENAME##)"
 VERSION="##VERSION## (##CODENAME##)"
 VERSION_ID="##VERSION##"
 VERSION_CODENAME=##codename##
-HOME_URL="https://boltlinux.org"
+HOME_URL="https://yaybondi.com"

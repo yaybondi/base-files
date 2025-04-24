@@ -102,7 +102,6 @@ endif
 install-files:
 	install -m 644 etc/profile  $(DESTDIR)/etc/
 	install -m 644 etc/services $(DESTDIR)/etc/
-	echo $(VERSION) >           $(DESTDIR)/etc/bolt_version
 	./fill-template.sh >        $(DESTDIR)/etc/os-release
 
 tarball:
